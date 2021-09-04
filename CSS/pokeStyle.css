@@ -4,25 +4,16 @@ body {
     background-attachment: fixed;
 }
 
-/* SIZE PLUS BUTTON*/
-.PlusButton{
+/* SIZE BUTTON PLUS */
+.buttonPlus {
     width: 5vh;
     height: 5vh;
-}
-
-/* SIZE BANNER BUTTON */
-.bannerButton{
-    padding: 1vh;
-    max-width: 12vh;
-    min-width: 12vh;
-    height: 12vh;
 }
 
 /* SIZE IN BANNER */
 .banner{
     max-width: 100%;
     min-width: 100%;
-    height: 20vh; 
     border:solid 1vh;
     border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
 }
@@ -136,13 +127,8 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    padding: 10%;
-    /* display: block;
-    margin-left: auto;
-    margin-right: auto;
     width: 50vh;
-    padding: 10vh; */
+    padding: 10vh;
 }
 
 /* CONFIGURATION FONT*/

@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // get data from API
 const fetchData = async () => {
     try {
+
+        loadData(); // disable buttons
+
         var i = 0;
 
         // get data onli nine pokemon per turn
@@ -29,9 +32,11 @@ const fetchData = async () => {
             pokeNum++;
             i++;
         }
+        
         if (click != 0) {
             await sleep(1000);
         }
+
         // pain set name and save importan data 0-9
         for (let index = 0; index < bufferPokemon.length; index++) {
             paintCrad(bufferPokemon[index]);
@@ -89,9 +94,9 @@ const setData = (pData) => {
     try {
         pData.types.forEach(element => {
             if (len == j) {
-                strgData += element.type.name;
+                strgData += element.type.name ;
                 throw BreakException;
-            } else {
+            }else{
                 j++;
                 strgData += element.type.name + ",";
             }
@@ -121,7 +126,7 @@ function loadData() {
     var image;
     document.getElementById("backButton").disabled = true;
     document.getElementById("nextButton").disabled = true;
-    while (i < 9) {        
+    while (i < 9) {
         image = document.getElementById(`container${i}`);
         image.src = 'https://media.giphy.com/media/W2LPUUdHkPFNLaWwPZ/giphy.gif?cid=ecf05e47dppbqp02fo7ugqykojmvmo08zbda664qymchtoxd&rid=giphy.gif&ct=s';
         image.style.width = '15vh';
@@ -150,6 +155,7 @@ function start() {
     document.getElementById("cardGhostTwo").style.display = "none";
 
     var imagePlus = document.getElementById('plus');
+
     var stringP;
     var imagePlus
     for (let index = 0; index < 9; index++) {
