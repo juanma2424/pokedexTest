@@ -4,16 +4,25 @@ body {
     background-attachment: fixed;
 }
 
-/* SIZE BUTTON PLUS */
-.buttonPlus {
+/* SIZE PLUS BUTTON*/
+.PlusButton{
     width: 5vh;
     height: 5vh;
+}
+
+/* SIZE BANNER BUTTON */
+.bannerButton{
+    padding: 1vh;
+    max-width: 12vh;
+    min-width: 12vh;
+    height: 12vh;
 }
 
 /* SIZE IN BANNER */
 .banner{
     max-width: 100%;
     min-width: 100%;
+    height: 20vh; 
     border:solid 1vh;
     border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
 }
@@ -127,8 +136,13 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 50%;
+    padding: 10%;
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 50vh;
-    padding: 10vh;
+    padding: 10vh; */
 }
 
 /* CONFIGURATION FONT*/
@@ -140,10 +154,11 @@ h1{
 }
 
 h2{
+    padding: 7vh;
     font-family: 'Pokemon Solid', sans-serif;
     text-align: center;
     color: #bebeb2fd;
-    font-size: 3.2vh;
+    font-size: 4.2vh;
 }
 
 p{

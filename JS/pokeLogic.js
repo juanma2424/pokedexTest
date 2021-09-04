@@ -19,9 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // get data from API
 const fetchData = async () => {
     try {
-
-        loadData(); // disable buttons
-
         var i = 0;
 
         // get data onli nine pokemon per turn
@@ -32,7 +29,9 @@ const fetchData = async () => {
             pokeNum++;
             i++;
         }
-
+        if (click != 0) {
+            await sleep(1000);
+        }
         // pain set name and save importan data 0-9
         for (let index = 0; index < bufferPokemon.length; index++) {
             paintCrad(bufferPokemon[index]);
@@ -64,20 +63,20 @@ const setData = (pData) => {
     var BreakException = {};
 
     var strgData =
-        "Name : " + pData.name + "<br>" +
-        "weight: " + pData.weight + "<br>" +
-        "height: " + pData.height + "<br>" +
+        "Name : " + pData.name + "<br><br>" +
+        "weight: " + pData.weight + "<br><br>" +
+        "height: " + pData.height + "<br><br>" +
         "Moves: ";
 
     try {
         pData.moves.forEach(element => {
             if (i == 2) {
-                strgData += element.move.name + "<br>"
+                strgData += element.move.name + "<br><br>"
                 throw BreakException;
             } else {
                 strgData += element.move.name + ",";
                 i++;
-            } 
+            }
         });
     } catch (e) {
         if (e !== BreakException) throw e;
@@ -85,9 +84,21 @@ const setData = (pData) => {
 
     strgData += "Type: "
 
-    pData.types.forEach(element => {
-        strgData += element.type.name + ", ";
-    });
+    var j = 1;
+    var len = pData.types.length;
+    try {
+        pData.types.forEach(element => {
+            if (len == j) {
+                strgData += element.type.name;
+                throw BreakException;
+            } else {
+                j++;
+                strgData += element.type.name + ",";
+            }
+        });
+    } catch (e) {
+        if (e !== BreakException) throw e;
+    }
 
     pokeData[numerCard] = strgData; // array to save only importan data (size 9)
     pokeNames[numerCard] = pData.name;// array to save names (size 9)
@@ -110,7 +121,7 @@ function loadData() {
     var image;
     document.getElementById("backButton").disabled = true;
     document.getElementById("nextButton").disabled = true;
-    while (i < 9) {
+    while (i < 9) {        
         image = document.getElementById(`container${i}`);
         image.src = 'https://media.giphy.com/media/W2LPUUdHkPFNLaWwPZ/giphy.gif?cid=ecf05e47dppbqp02fo7ugqykojmvmo08zbda664qymchtoxd&rid=giphy.gif&ct=s';
         image.style.width = '15vh';
@@ -139,7 +150,6 @@ function start() {
     document.getElementById("cardGhostTwo").style.display = "none";
 
     var imagePlus = document.getElementById('plus');
-
     var stringP;
     var imagePlus
     for (let index = 0; index < 9; index++) {
@@ -185,10 +195,9 @@ function offData() {
 document.addEventListener('DOMContentLoaded', function () {
     var button = document.getElementById('nextButton');
     button.addEventListener('click', function () {
-        document.getElementById("nextButton").disabled = true;
+        loadData(); // disable buttons
         fetchData();
         click++;
-        document.getElementById("nextButton").disabled = false;
     });
 });
 
@@ -196,14 +205,13 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     var button = document.getElementById('backButton');
     button.addEventListener('click', function () {
-        document.getElementById("backButton").disabled = true;
         click--;
         pokeNum = (click * 9) + 1;
         if (pokeNum <= 0) {
             pokeNum = 1
         }
+        loadData(); // disable buttons
         fetchData();
-        document.getElementById("backButton").disabled = false;
     });
 });
 
