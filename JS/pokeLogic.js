@@ -150,6 +150,10 @@ function readyData() {
 
 //enable button
 function start() {
+
+    for (let index = 0; index < 9; index++) {
+        document.getElementById(`back${index}`).style.display = "none";
+    }
     document.getElementById("cardGhostTable").style.display = "none";
     document.getElementById("cardGhostOne").style.display = "none";
     document.getElementById("cardGhostTwo").style.display = "none";
@@ -171,13 +175,8 @@ function start() {
     imageBB.style.width = '10vh';
     imageBB.style.height = '10vh';
 
-    // var image = document.getElementById('containerCam');
-    // image.src = "../Resources/cam.png";
-    // image.style.width = '10vh';
-    // image.style.height = '10vh';
 
     var imagePlus = document.getElementById('plus');
-
     var stringP;
     var imagePlus
     for (let index = 0; index < 9; index++) {
@@ -197,21 +196,33 @@ function managerButton() {
     }
 }
 
+function resetPokedex() {
+    var pNum =0;
+    while(pNum < 9) {
+        document.getElementById(`pData${pNum}`).innerHTML = "";
+        document.getElementById(`back${pNum}`).style.display = "none";
+        document.getElementById(`container${pNum}`).style.display = "block";
+        document.getElementById(`plus${pNum}`).style.display = "block";
+        pNum++;
+    }
+
+}
+
+function backButtos(pNum) {
+    document.getElementById(`pData${pNum}`).innerHTML = "";
+    document.getElementById(`container${pNum}`).style.display = "block";
+    document.getElementById(`plus${pNum}`).style.display = "block";
+    document.getElementById(`back${pNum}`).style.display = "none";
+}
+
 // click funtion in button plus
 function bPlus(pNum) {
     if (window.screen.width < 650) {
-        document.getElementById("cardGhostTableMobile").style.display = "block";
-        document.getElementById("cardGhostOneMobile").style.display = "block";
-        document.getElementById("cardGhostTwoMobile").style.display = "block";
-
-        var imageBR = document.getElementById("container00Mobile");
-        imageBR.src = imgPokemon[pNum];
-        imageBR.style.width = '33vh';
-        imageBR.style.height = '33vh';
-
-        document.getElementById("pokeDataMsgMobile").innerHTML = pokeData[pNum];
-        document.getElementById("pokeNameMobile").innerHTML = pokeNames[pNum];
-
+        console.log(`container${pNum}`)
+        document.getElementById(`back${pNum}`).style.display = "block";
+        document.getElementById(`pData${pNum}`).innerHTML = pokeData[pNum];
+        document.getElementById(`container${pNum}`).style.display = "none";
+        document.getElementById(`plus${pNum}`).style.display = "none";
     } else {
         document.getElementById("cardGhostTableWeb").style.display = "block";
         document.getElementById("cardGhostOneWeb").style.display = "block";
@@ -244,9 +255,17 @@ function offData() {
 document.addEventListener('DOMContentLoaded', function () {
     var button = document.getElementById('nextButton');
     button.addEventListener('click', function () {
-        loadData(); // disable buttons
-        fetchData();
         click++;
+        if (window.screen.width < 650) {
+            resetPokedex();
+            loadData(); // disable buttons
+            fetchData();
+        }else{
+            loadData(); // disable buttons
+            fetchData();
+        }
+       
+        
     });
 });
 
@@ -259,8 +278,15 @@ document.addEventListener('DOMContentLoaded', function () {
         if (pokeNum <= 0) {
             pokeNum = 1
         }
-        loadData(); // disable buttons
-        fetchData();
+        if (window.screen.width < 650) {
+            resetPokedex();
+            loadData(); // disable buttons
+            fetchData();
+        }else{
+            loadData(); // disable buttons
+            fetchData();
+        }
+        
     });
 });
 
