@@ -20,25 +20,25 @@
     <!--Banner-->
     <div class="container banner">
 
-        <div class="row align-items-center p-2">
+        <div class="row align-items-center">
 
             <div class="col-7 col-sm-10 col-lg-10">
-                <button onclick="home()" type="submit" style="border: 0; background: transparent">
-                    <img src="../Resources/cam.png" width="80" height="auto" alt="submit" />
+                <button id="containerCam" onclick="home()" type="submit" style="border: 0; background: transparent" align="center">
+                    <img src="../Resources/cam.png" width="80" height="auto" alt="submit" class="bannerButtonCam" />
                 </button>
             </div>
 
            
             <div class="col-1 col-sm-1 col-lg-1 d-flex justify-content-end">
                 <button id="backButton" type="submit" style="border: 0; background: transparent">
-                    <img src="../Resources/left.png" width="70" height="80" alt="submit" />
+                    <img src="../Resources/left.png" width="70" height="80" alt="submit" class="directionButton" />
                 </button>
             </div>
 
            
             <div class="col-3 col-sm-1 col-lg-1 d-flex justify-content-end">
                 <button id="nextButton" type="submit" style="border: 0; background: transparent">
-                    <img src="../Resources/right.png" width="70" height="80" alt="submit" />
+                    <img src="../Resources/right.png" width="70" height="80" alt="submit"class="directionButton" />
                 </button>
             </div>
 
@@ -47,40 +47,40 @@
 
 
     <!-- GhostTable Web -->
-    <div id="cardGhostTable" class="container ghostPokedexWeb web" onclick="offData()" >
+    <div id="cardGhostTableWeb" class="container ghostPokedexWeb web" onclick="offData()" >
         <div class="row align-items-center">
 
-            <div id="cardGhostOne" class="col-sm-12  col-md-12 col-lg-6 ghostcardWeb" align="center">
-                <h1 id="pokeName" class="center"></h1>
-                <img id="container00"/>
+            <div id="cardGhostOneWeb" class="col-sm-12  col-md-12 col-lg-6 ghostcardWeb" align="center">
+                <h1 id="pokeNameWeb" class="center"></h1>
+                <img id="container00Web"/>
             </div>
 
-            <div id="cardGhostTwo" class="col-sm-12 col-md-12 col-lg-6 ghostcardWeb" align="center">
-                <h2 id="msgError"></h2>
+            <div id="cardGhostTwoWeb" class="col-sm-12 col-md-12 col-lg-6 ghostcardWeb" align="center">
+                <h2 id="pokeDataMsgWeb"></h2>
             </div>
 
         </div>
     </div> 
 
-    <!--GhostTable 2-->
-    <!-- <div id="cardGhostTable" class="container ghostPokedexMobile mobile" onclick="offData()">
+    <!--GhostTable Mobile-->
+    <div id="cardGhostTableMobile" class="container ghostPokedexMobile mobile" onclick="offData()">
         
         <div class="row align-items-center">
-            <div id="cardGhostOne" class="col-sm-12 col-md-12 col-lg-6 ghostPokedexCardMobile" align="center"> 
-                <h1 id="pokeName"></h1>
-                <img id="container00"/>
+            <div id="cardGhostOneMobile" class="col-sm-12 col-md-12 col-lg-6 ghostPokedexCardMobile" align="center"> 
+                <h1 id="pokeNameMobile"></h1>
+                <img id="container00Mobile"/>
             </div>
             
         </div>
 
          <div class="row align-items-center">
-            <div id="cardGhostTwo" class="col-sm-12 col-md-12 col-lg-6 ghostPokedexCardMobile" align="center"> 
-                <h2 id="msgError"></h2>
+            <div id="cardGhostTwoMobile" class="col-sm-12 col-md-12 col-lg-6 ghostPokedexCardMobile" align="center"> 
+                <h2 id="pokeDataMsgMobile"></h2>
                 <img id="container01"/>
             </div>
         </div>
 
-    </div> -->
+    </div>
 
 
     <!--Table-->

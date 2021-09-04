@@ -32,7 +32,7 @@ const fetchData = async () => {
             pokeNum++;
             i++;
         }
-        
+
         if (click != 0) {
             await sleep(1000);
         }
@@ -94,9 +94,9 @@ const setData = (pData) => {
     try {
         pData.types.forEach(element => {
             if (len == j) {
-                strgData += element.type.name ;
+                strgData += element.type.name;
                 throw BreakException;
-            }else{
+            } else {
                 j++;
                 strgData += element.type.name + ",";
             }
@@ -154,6 +154,28 @@ function start() {
     document.getElementById("cardGhostOne").style.display = "none";
     document.getElementById("cardGhostTwo").style.display = "none";
 
+
+    var image = document.getElementById('containerCam');
+    image.src = "../Resources/cam.png";
+    image.style.width = '10vh';
+    image.style.height = '10vh';
+
+
+    var imageNB = document.getElementById('nextButton');
+    imageNB.src = "../Resources/right.png";
+    imageNB.style.width = '10vh';
+    imageNB.style.height = '10vh';
+
+    var imageBB = document.getElementById('backButton');
+    imageBB.src = "../Resources/left.png";
+    imageBB.style.width = '10vh';
+    imageBB.style.height = '10vh';
+
+    // var image = document.getElementById('containerCam');
+    // image.src = "../Resources/cam.png";
+    // image.style.width = '10vh';
+    // image.style.height = '10vh';
+
     var imagePlus = document.getElementById('plus');
 
     var stringP;
@@ -177,24 +199,45 @@ function managerButton() {
 
 // click funtion in button plus
 function bPlus(pNum) {
-    document.getElementById("cardGhostTable").style.display = "block";
-    document.getElementById("cardGhostOne").style.display = "block";
-    document.getElementById("cardGhostTwo").style.display = "block";
+    if (window.screen.width < 650) {
+        document.getElementById("cardGhostTableMobile").style.display = "block";
+        document.getElementById("cardGhostOneMobile").style.display = "block";
+        document.getElementById("cardGhostTwoMobile").style.display = "block";
 
-    var imageBR = document.getElementById("container00");
-    imageBR.src = imgPokemon[pNum];
-    imageBR.style.width = '33vh';
-    imageBR.style.height = '33vh';
+        var imageBR = document.getElementById("container00Mobile");
+        imageBR.src = imgPokemon[pNum];
+        imageBR.style.width = '33vh';
+        imageBR.style.height = '33vh';
 
-    document.getElementById("msgError").innerHTML = pokeData[pNum];
-    document.getElementById("pokeName").innerHTML = pokeNames[pNum];
+        document.getElementById("pokeDataMsgMobile").innerHTML = pokeData[pNum];
+        document.getElementById("pokeNameMobile").innerHTML = pokeNames[pNum];
+
+    } else {
+        document.getElementById("cardGhostTableWeb").style.display = "block";
+        document.getElementById("cardGhostOneWeb").style.display = "block";
+        document.getElementById("cardGhostTwoWeb").style.display = "block";
+
+        var imageBR = document.getElementById("container00Web");
+        imageBR.src = imgPokemon[pNum];
+        imageBR.style.width = '33vh';
+        imageBR.style.height = '33vh';
+
+        document.getElementById("pokeDataMsgWeb").innerHTML = pokeData[pNum];
+        document.getElementById("pokeNameWeb").innerHTML = pokeNames[pNum];
+
+    }
+
+
 }
 
 // click funtion in overlay
 function offData() {
-    document.getElementById("cardGhostTable").style.display = "none";
-    document.getElementById("cardGhostOne").style.display = "none";
-    document.getElementById("cardGhostTwo").style.display = "none";
+    document.getElementById("cardGhostTableMobile").style.display = "none";
+    document.getElementById("cardGhostOneMobile").style.display = "none";
+    document.getElementById("cardGhostTwoMobile").style.display = "none";
+    document.getElementById("cardGhostTableWeb").style.display = "none";
+    document.getElementById("cardGhostOneWeb").style.display = "none";
+    document.getElementById("cardGhostTwoWeb").style.display = "none";
 }
 
 // click funtion in button next 

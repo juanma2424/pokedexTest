@@ -10,10 +10,25 @@ body {
     height: 5vh;
 }
 
+/* SIZE BANNER BUTTON */
+.bannerButtonCam {
+    width: 10vh;
+    height: 10vh;
+}
+
+/* SIZE DIRECTION BUTTON */
+.directionButton {
+    width: 10vh;
+    height: 10vh;
+}
+
 /* SIZE IN BANNER */
 .banner{
+    padding: 2vh;
+    display: block;
     max-width: 100%;
     min-width: 100%;
+    height: 17vh; 
     border:solid 1vh;
     border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
 }
@@ -28,6 +43,7 @@ body {
     border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
 }
 
+
 /* CARD STYLE IN POKEDEX AND GHOST TABLES */
 .card {
     padding: 2vh;
@@ -39,88 +55,74 @@ body {
     border-color:#302e2e #726969 #726969 #000000; 
 }
 
+
+
 /* WEB */
 
 /* GHOST TABLE IN PODEX WEB */
 .ghostPokedexWeb{
-    display: block;
+    display: none;
     max-width: 100%;
     min-width: 100%;
     height: 74vh; 
-    background-color: rgb(60, 144, 163);
+    background-color: rgb(0, 0, 0);
     position:absolute;
     z-index:1; 
 }
-
-/* ONLY WEB */
-@media screen and  (min-width: 1000px){
-
-    
-
-    .ghostcardWeb{
-        display: block;
-        max-height: 74vh;
-        min-height: 74vh;
-        background-color: rgb(60, 163, 77);
-        border:solid 1vh; 
-        background-attachment: fixed;
-        border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
-    }
-    .mobile{
-        display: none;
-    }
+/* GHOST CARD IN PODEX WEB */
+.ghostcardWeb{
+    display: block;
+    max-height: 74vh;
+    min-height: 74vh;
+    background-color: rgb(255, 23, 23);
+    border:solid 1vh; 
+    background-attachment: fixed;
+    border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
 }
+
+
 
 
 /* MOBILE */
 
 /* GHOST TABLE IN PODEX MOBILE */
 .ghostPokedexMobile{
-    display: blocK;
+    display: none;
     min-width: 100%;
     max-width: 100%;
     min-height: 100%;
     max-height: 100%;
-    
-   
     position:absolute;
     background-color: rgb(146, 60, 163);
     background-attachment: fixed;
     z-index:1;
 }
 
-
-/* ONLY MOBILE */
-@media screen and  (max-width: 650px){
-
-    .ghostPokedexCardMobile{
-        /* display: block;
-        max-width: 100%;
-        min-width: 100%;
-        min-height: 50%;
-        max-height: 50%;
-
-        position:absolute;
-        background-color: rgb(153, 163, 10);
-        background-attachment: fixed;
-        z-index:1; */
-        padding: 7vh;
-        margin-left: auto;
-        margin-right: auto;
-        min-width: 100%;
-        max-width: 100%;
-        max-height: 440px;
-        min-height: 440px;
-        width: 50%;
-        border:solid 7px; 
-        background-color: rgb(60, 144, 163);
-        background-attachment: fixed;
-        border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
-    }
-    .web{
-        display: none;
-    }
+/* GHOST CARD IN PODEX MOBILE */
+.ghostPokedexCardMobile{
+    padding: 7vh;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 440px;
+    min-height: 440px;
+    width: 50%;
+    border:solid 7px; 
+    background-color: rgb(255, 255, 255);
+    background-attachment: fixed;
+    border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
 }
+
+
+
+
+
+
+
+
+
+
 
 /* CENTER ELEMENT */
 .center {
@@ -153,3 +155,7 @@ p{
     color: #cab70efd;
     font-size: 3.2vh;
 }
+
+
+
+
