@@ -43,7 +43,6 @@ body {
     border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
 }
 
-
 /* CARD STYLE IN POKEDEX AND GHOST TABLES */
 .card {
     padding: 2vh;
@@ -55,11 +54,7 @@ body {
     border-color:#302e2e #726969 #726969 #000000; 
 }
 
-
-
-/* WEB */
-
-/* GHOST TABLE IN PODEX WEB */
+/* GHOST TABLE IN PODEX */
 .ghostPokedexWeb{
     display: none;
     max-width: 100%;
@@ -69,7 +64,8 @@ body {
     position:absolute;
     z-index:1; 
 }
-/* GHOST CARD IN PODEX WEB */
+
+/* GHOST CARD IN PODEX */
 .ghostcardWeb{
     display: block;
     max-height: 74vh;
@@ -79,24 +75,6 @@ body {
     border:solid 1vh; 
     background-attachment: fixed;
     border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
-}
-
-
-
-
-/* MOBILE */
-
-/* GHOST TABLE IN PODEX MOBILE */
-.ghostPokedexMobile{
-    display: none;
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 100%;
-    max-height: 100%;
-    position:absolute;
-    background-color: rgb(146, 60, 163);
-    background-attachment: fixed;
-    z-index:1;
 }
 
 /* CENTER ELEMENT */

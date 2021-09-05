@@ -1,4 +1,3 @@
-// 898 pokemons
 var pokeNum = 1; // number of pokemon
 var pokeNames = [];// array to save names (size 9)
 var pokeData = [];// array to save only importan data (size 9)
@@ -251,9 +250,6 @@ function bPlus(pNum) {
 
 // click funtion in overlay
 function offData() {
-    document.getElementById("cardGhostTableMobile").style.display = "none";
-    document.getElementById("cardGhostOneMobile").style.display = "none";
-    document.getElementById("cardGhostTwoMobile").style.display = "none";
     document.getElementById("cardGhostTableWeb").style.display = "none";
     document.getElementById("cardGhostOneWeb").style.display = "none";
     document.getElementById("cardGhostTwoWeb").style.display = "none";
