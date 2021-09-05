@@ -204,6 +204,7 @@ function managerButton() {
     }
 }
 
+// clean img and buttons
 function resetPokedex() {
     var pNum = 0;
     while (pNum < 9) {
@@ -218,6 +219,7 @@ function resetPokedex() {
     document.getElementById("cardGhostTwoWeb").style.display = "none";
 }
 
+// click funtion in button back
 function backButtos(pNum) {
     document.getElementById(`pData${pNum}`).innerHTML = "";
     document.getElementById(`container${pNum}`).style.display = "block";
@@ -227,13 +229,16 @@ function backButtos(pNum) {
 
 // click funtion in button plus
 function bPlus(pNum) {
+    //mobile
     if (window.screen.width < 650) {
         console.log(`container${pNum}`)
         document.getElementById(`back${pNum}`).style.display = "block";
         document.getElementById(`pData${pNum}`).innerHTML = pokeData[pNum];
         document.getElementById(`container${pNum}`).style.display = "none";
         document.getElementById(`plus${pNum}`).style.display = "none";
-    } else {
+    } 
+    //web
+    else {
         document.getElementById("cardGhostTableWeb").style.display = "block";
         document.getElementById("cardGhostOneWeb").style.display = "block";
         document.getElementById("cardGhostTwoWeb").style.display = "block";
