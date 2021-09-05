@@ -75,6 +75,7 @@ body {
     max-height: 74vh;
     min-height: 74vh;
     background-color: rgb(255, 23, 23);
+    background: linear-gradient(180deg, #3806ec 0%, #7869d1bb 90%);
     border:solid 1vh; 
     background-attachment: fixed;
     border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
@@ -97,32 +98,6 @@ body {
     background-attachment: fixed;
     z-index:1;
 }
-
-/* GHOST CARD IN PODEX MOBILE */
-.ghostPokedexCardMobile{
-    padding: 7vh;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 100%;
-    max-width: 100%;
-    max-height: 440px;
-    min-height: 440px;
-    width: 50%;
-    border:solid 7px; 
-    background-color: rgb(255, 255, 255);
-    background-attachment: fixed;
-    border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
-}
-
-
-
-
-
-
-
-
-
-
 
 /* CENTER ELEMENT */
 .center {

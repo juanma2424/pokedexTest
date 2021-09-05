@@ -1,3 +1,4 @@
+// 898 pokemons
 var pokeNum = 1; // number of pokemon
 var pokeNames = [];// array to save names (size 9)
 var pokeData = [];// array to save only importan data (size 9)
@@ -114,10 +115,18 @@ const setData = (pData) => {
 
 // reset
 function home() {
-    pokeNum = 1; // number of pokemon
-    click = 0;// clicks
-    numerCard = 0;// number of card
-    fetchData();
+    if (click >= 1) {
+        if (window.screen.width < 650) {
+            resetPokedex();
+        }
+        pokeNum = 1; // number of pokemon
+        click = 0;// clicks
+        numerCard = 0;// number of card
+        fetchData();
+    }
+    document.getElementById("cardGhostTableWeb").style.display = "none";
+    document.getElementById("cardGhostOneWeb").style.display = "none";
+    document.getElementById("cardGhostTwoWeb").style.display = "none";
 }
 
 // disable buttons
@@ -154,10 +163,9 @@ function start() {
     for (let index = 0; index < 9; index++) {
         document.getElementById(`back${index}`).style.display = "none";
     }
-    document.getElementById("cardGhostTable").style.display = "none";
-    document.getElementById("cardGhostOne").style.display = "none";
-    document.getElementById("cardGhostTwo").style.display = "none";
-
+    // document.getElementById("cardGhostTable").style.display = "none";
+    // document.getElementById("cardGhostOne").style.display = "none";
+    // document.getElementById("cardGhostTwo").style.display = "none";
 
     var image = document.getElementById('containerCam');
     image.src = "../Resources/cam.png";
@@ -189,23 +197,26 @@ function start() {
 
 // disables button by clicks
 function managerButton() {
-    console.log('-> ', click);
     if (click == 0) {
-        console.log('--> ', click);
         document.getElementById("backButton").disabled = true;
+    }
+    if (click >= 100) {
+        document.getElementById("nextButton").disabled = true;
     }
 }
 
 function resetPokedex() {
-    var pNum =0;
-    while(pNum < 9) {
+    var pNum = 0;
+    while (pNum < 9) {
         document.getElementById(`pData${pNum}`).innerHTML = "";
         document.getElementById(`back${pNum}`).style.display = "none";
         document.getElementById(`container${pNum}`).style.display = "block";
         document.getElementById(`plus${pNum}`).style.display = "block";
         pNum++;
     }
-
+    document.getElementById("cardGhostTableWeb").style.display = "none";
+    document.getElementById("cardGhostOneWeb").style.display = "none";
+    document.getElementById("cardGhostTwoWeb").style.display = "none";
 }
 
 function backButtos(pNum) {
@@ -235,10 +246,7 @@ function bPlus(pNum) {
 
         document.getElementById("pokeDataMsgWeb").innerHTML = pokeData[pNum];
         document.getElementById("pokeNameWeb").innerHTML = pokeNames[pNum];
-
     }
-
-
 }
 
 // click funtion in overlay
@@ -256,16 +264,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var button = document.getElementById('nextButton');
     button.addEventListener('click', function () {
         click++;
-        if (window.screen.width < 650) {
-            resetPokedex();
-            loadData(); // disable buttons
-            fetchData();
-        }else{
-            loadData(); // disable buttons
-            fetchData();
-        }
-       
-        
+        loadData(); // disable buttons
+        resetPokedex();
+        fetchData();
     });
 });
 
@@ -278,15 +279,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (pokeNum <= 0) {
             pokeNum = 1
         }
-        if (window.screen.width < 650) {
-            resetPokedex();
-            loadData(); // disable buttons
-            fetchData();
-        }else{
-            loadData(); // disable buttons
-            fetchData();
-        }
-        
+        resetPokedex();
+        loadData(); // disable buttons
+        fetchData();
     });
 });
 
