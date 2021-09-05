@@ -88,10 +88,10 @@ body {
 
 /* CONFIGURATION FONT*/
 h1{
-    font-family: 'Pokemon Solid', sans-serif;
-    text-align: center;
+   
     color: #cab70efd;
     font-size: 5.2vh;
+    font-family: 'Press Start 2P', cursive;
 }
 
 h2{
