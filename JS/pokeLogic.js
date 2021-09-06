@@ -180,7 +180,6 @@ function managerButton() {
     if (click == 0) {
         document.getElementById("backButton").disabled = true;
         document.getElementById("containerCam").disabled = true;
-
     }
     if (click >= 100) {
         document.getElementById("nextButton").disabled = true;
@@ -249,7 +248,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var button = document.getElementById('nextButton');
     button.addEventListener('click', function () {
         click++;
-        document.getElementById("containerCam").disabled = false;
         loadData(); // disable buttons
         resetPokedex();
         fetchData();
@@ -271,12 +269,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
 // click funtion in button cam
-document.addEventListener('DOMContentLoaded', function () {
-    var button = document.getElementById('containerCam');
-    button.addEventListener('click', function () {
-        home();
-    });
+document.getElementById("containerCam").addEventListener("click", function () {
+    home();
 });
+
+
 
 
