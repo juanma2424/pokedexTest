@@ -214,7 +214,7 @@ function backButtos(pNum) {
 function bPlus(pNum) {
     console.log(window.screen.width);
     //mobile
-    if (window.screen.width <= 823) {
+    if (window.screen.width <= 650) {
         console.log(`container${pNum}`)
         document.getElementById(`back${pNum}`).style.display = "block";
         document.getElementById(`pData${pNum}`).innerHTML = pokeData[pNum];
