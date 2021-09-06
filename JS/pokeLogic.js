@@ -54,7 +54,7 @@ const fetchData = async () => {
 
 // paint pokemon in pokedex table 
 const paintCrad = (pData) => {
-    var image = document.getElementById('container' + numerCard.toString());
+    var image = document.getElementById(`container${numerCard}`);
     image.src = pData.sprites.other.dream_world.front_default;
     imgPokemon[numerCard] = pData.sprites.other.dream_world.front_default;// save pokemon image
     image.style.width = '15vh';
@@ -63,51 +63,9 @@ const paintCrad = (pData) => {
 }
 
 
-// build string abilities and types
-function buildWords(pBoolData, pData, strgData) {
-    var j = 1;// stop before the last
-    var BreakException = {};
-
-    // abilities
-    if (pBoolData) {
-        var len = pData.abilities.length;
-        try {
-            pData.abilities.forEach(element => {
-                if (len == j) {
-                    strgData += element.ability.name + "<br><br>";
-                    return strgData;
-                } else {
-                    j++;
-                    strgData += element.ability.name + ",";
-                }
-            });
-            return strgData;
-        } catch (e) {
-            if (e !== BreakException) throw e;
-        }
-    } 
-    // types
-    else {
-        var len = pData.types.length;
-        try {
-            pData.types.forEach(element => {
-                if (len == j) {
-                    strgData += element.type.name;
-                    return strgData;
-                } else {
-                    j++;
-                    strgData += element.type.name + ",";
-                }
-            });
-            return strgData;
-        } catch (e) {
-            if (e !== BreakException) throw e;
-        }
-    }
-}
-
 // save only importan data
 const setData = (pData) => {
+    // build string poke data
     var strgData =
         "Name: " + pData.name + "<br><br>" +
         "Weight: " + pData.weight + "<br><br>" +
@@ -117,37 +75,74 @@ const setData = (pData) => {
     strgData = buildWords(true, pData, strgData);
     strgData += "Type: "
     strgData = buildWords(false, pData, strgData);
-    console.log(strgData);
 
     pokeData[numerCard] = strgData; // array to save only importan data (size 9)
     pokeNames[numerCard] = pData.name;// array to save names (size 9)
-    pokeName = pData.name;
-    numIndex = 'p' + (numerCard);
-    document.getElementById(numIndex).innerHTML = pokeName;//set poke name
+    numIndex = `p${numerCard}`;
+    document.getElementById(numIndex).innerHTML = pData.name;//set poke name
+}
+
+
+// build string abilities and types
+function buildWords(pBoolData, pData, strgData) {
+    var j = 1;// stop before the last
+
+    if (pBoolData) {// abilities
+
+        var len = pData.abilities.length;
+
+        pData.abilities.forEach(element => {
+            if (len == j) {
+                strgData += `${element.ability.name}<br><br>`;
+            } else {
+                j++;
+                strgData += `${element.ability.name}, `;
+            }
+        });
+        return strgData;
+
+    }
+
+    else { // types
+
+        var len = pData.types.length;
+
+        pData.types.forEach(element => {
+            if (len == j) {
+                strgData += `${element.type.name}`;
+            } else {
+                j++;
+                strgData += `${element.type.name}, `;
+            }
+        });
+        return strgData;
+
+    }
 }
 
 // reset
 function home() {
-    if (click >= 1) {
-        if (window.screen.width < 650) {
-            resetPokedex();
-        }
-        pokeNum = 1; // number of pokemon
-        click = 0;// clicks
-        numerCard = 0;// number of card
-        fetchData();
+
+    if (window.screen.width < 650) {
+        resetPokedex();
     }
+    pokeNum = 1; // number of pokemon
+    click = 0;// clicks
+    numerCard = 0;// number of card
+    fetchData();
+    
     document.getElementById("cardGhostTableWeb").style.display = "none";
     document.getElementById("cardGhostOneWeb").style.display = "none";
     document.getElementById("cardGhostTwoWeb").style.display = "none";
 }
 
-// disable buttons
+// load mode 
 function loadData() {
     var i = 0;
     var image;
     document.getElementById("backButton").disabled = true;
     document.getElementById("nextButton").disabled = true;
+    document.getElementById("containerCam").disabled = true;
     while (i < 9) {
         image = document.getElementById(`container${i}`);
         image.src = 'https://media.giphy.com/media/W2LPUUdHkPFNLaWwPZ/giphy.gif?cid=ecf05e47dppbqp02fo7ugqykojmvmo08zbda664qymchtoxd&rid=giphy.gif&ct=s';
@@ -164,47 +159,20 @@ function readyData() {
     var i = 0;
     document.getElementById("backButton").disabled = false;
     document.getElementById("nextButton").disabled = false;
+    document.getElementById("containerCam").disabled = false;
     while (i < 9) {
         document.getElementById(`plus${i}`).disabled = false;
         i++;
     }
 }
 
-//enable button
+//start
 function start() {
-
+    // set display none back buttons
     for (let index = 0; index < 9; index++) {
         document.getElementById(`back${index}`).style.display = "none";
     }
-    // document.getElementById("cardGhostTable").style.display = "none";
-    // document.getElementById("cardGhostOne").style.display = "none";
-    // document.getElementById("cardGhostTwo").style.display = "none";
-
-    var image = document.getElementById('containerCam');
-    image.src = "../Resources/cam.png";
-    image.style.width = '10vh';
-    image.style.height = '10vh';
-
-
-    var imageNB = document.getElementById('nextButton');
-    imageNB.src = "../Resources/right.png";
-    imageNB.style.width = '10vh';
-    imageNB.style.height = '10vh';
-
-    var imageBB = document.getElementById('backButton');
-    imageBB.src = "../Resources/left.png";
-    imageBB.style.width = '10vh';
-    imageBB.style.height = '10vh';
-
-
-    var imagePlus = document.getElementById('plus');
-    var stringP;
-    var imagePlus
-    for (let index = 0; index < 9; index++) {
-        stringP = 'plus' + (index);
-        imagePlus = document.getElementById(stringP);
-        imagePlus.src = "../Resources/plus.png";
-    }
+    // click refresh
     click = 0;
 }
 
@@ -212,6 +180,8 @@ function start() {
 function managerButton() {
     if (click == 0) {
         document.getElementById("backButton").disabled = true;
+        document.getElementById("containerCam").disabled = true;
+
     }
     if (click >= 100) {
         document.getElementById("nextButton").disabled = true;
@@ -257,7 +227,7 @@ function bPlus(pNum) {
         document.getElementById("cardGhostOneWeb").style.display = "block";
         document.getElementById("cardGhostTwoWeb").style.display = "block";
 
-        var imageBR = document.getElementById("container00Web");
+        var imageBR = document.getElementById("container00Web");// show pokemon in pokde data 
         imageBR.src = imgPokemon[pNum];
         imageBR.style.width = '33vh';
         imageBR.style.height = '33vh';
@@ -299,4 +269,13 @@ document.addEventListener('DOMContentLoaded', function () {
         fetchData();
     });
 });
+
+// click funtion in button cam
+document.addEventListener('DOMContentLoaded', function () {
+    var button = document.getElementById('containerCam');
+    button.addEventListener('click', function () {
+        home();
+    });
+});
+
 
