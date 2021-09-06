@@ -6,6 +6,7 @@ var bufferPokemon = [];// array save all json of pokemon (size 9)
 var click = 0;// clicks
 var numerCard = 0;// number of card
 
+//sleep for a second avoid spamming the button
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
