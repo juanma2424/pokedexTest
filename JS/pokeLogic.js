@@ -122,7 +122,6 @@ function buildWords(pBoolData, pData, strgData) {
 
 // reset
 function home() {
-
     if (window.screen.width < 650) {
         resetPokedex();
     }
@@ -213,8 +212,9 @@ function backButtos(pNum) {
 
 // click funtion in button plus
 function bPlus(pNum) {
+    console.log(window.screen.width);
     //mobile
-    if (window.screen.width < 650) {
+    if (window.screen.width <= 823) {
         console.log(`container${pNum}`)
         document.getElementById(`back${pNum}`).style.display = "block";
         document.getElementById(`pData${pNum}`).innerHTML = pokeData[pNum];
@@ -249,6 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var button = document.getElementById('nextButton');
     button.addEventListener('click', function () {
         click++;
+        document.getElementById("containerCam").disabled = false;
         loadData(); // disable buttons
         resetPokedex();
         fetchData();
@@ -271,11 +272,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // click funtion in button cam
-// document.addEventListener('DOMContentLoaded', function () {
-//     var button = document.getElementById('containerCam');
-//     button.addEventListener('click', function () {
-//         home();
-//     });
-// });
+document.addEventListener('DOMContentLoaded', function () {
+    var button = document.getElementById('containerCam');
+    button.addEventListener('click', function () {
+        home();
+    });
+});
 
 
