@@ -130,7 +130,7 @@ function home() {
     click = 0;// clicks
     numerCard = 0;// number of card
     fetchData();
-    
+
     document.getElementById("cardGhostTableWeb").style.display = "none";
     document.getElementById("cardGhostOneWeb").style.display = "none";
     document.getElementById("cardGhostTwoWeb").style.display = "none";
@@ -271,11 +271,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // click funtion in button cam
-document.addEventListener('DOMContentLoaded', function () {
-    var button = document.getElementById('containerCam');
-    button.addEventListener('click', function () {
-        home();
-    });
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     var button = document.getElementById('containerCam');
+//     button.addEventListener('click', function () {
+//         home();
+//     });
+// });
 
 
