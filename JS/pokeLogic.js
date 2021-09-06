@@ -62,48 +62,62 @@ const paintCrad = (pData) => {
     setData(pData);
 }
 
-// save only importan data
-const setData = (pData) => {
-    var i = 0;
+
+// build string abilities and types
+function buildWords(pBoolData, pData, strgData) {
+    var j = 1;// stop before the last
     var BreakException = {};
 
+    // abilities
+    if (pBoolData) {
+        var len = pData.abilities.length;
+        try {
+            pData.abilities.forEach(element => {
+                if (len == j) {
+                    strgData += element.ability.name + "<br><br>";
+                    return strgData;
+                } else {
+                    j++;
+                    strgData += element.ability.name + ",";
+                }
+            });
+            return strgData;
+        } catch (e) {
+            if (e !== BreakException) throw e;
+        }
+    } 
+    // types
+    else {
+        var len = pData.types.length;
+        try {
+            pData.types.forEach(element => {
+                if (len == j) {
+                    strgData += element.type.name;
+                    return strgData;
+                } else {
+                    j++;
+                    strgData += element.type.name + ",";
+                }
+            });
+            return strgData;
+        } catch (e) {
+            if (e !== BreakException) throw e;
+        }
+    }
+}
+
+// save only importan data
+const setData = (pData) => {
     var strgData =
-        "Name : " + pData.name + "<br><br>" +
-        "weight: " + pData.weight + "<br><br>" +
-        "height: " + pData.height + "<br><br>" +
-        "Moves: ";
+        "Name: " + pData.name + "<br><br>" +
+        "Weight: " + pData.weight + "<br><br>" +
+        "Height: " + pData.height + "<br><br>" +
+        "Abilities: ";
 
-    try {
-        pData.moves.forEach(element => {
-            if (i == 2) {
-                strgData += element.move.name + "<br><br>"
-                throw BreakException;
-            } else {
-                strgData += element.move.name + ",";
-                i++;
-            }
-        });
-    } catch (e) {
-        if (e !== BreakException) throw e;
-    }
-
+    strgData = buildWords(true, pData, strgData);
     strgData += "Type: "
-
-    var j = 1;
-    var len = pData.types.length;
-    try {
-        pData.types.forEach(element => {
-            if (len == j) {
-                strgData += element.type.name;
-                throw BreakException;
-            } else {
-                j++;
-                strgData += element.type.name + ",";
-            }
-        });
-    } catch (e) {
-        if (e !== BreakException) throw e;
-    }
+    strgData = buildWords(false, pData, strgData);
+    console.log(strgData);
 
     pokeData[numerCard] = strgData; // array to save only importan data (size 9)
     pokeNames[numerCard] = pData.name;// array to save names (size 9)
@@ -236,7 +250,7 @@ function bPlus(pNum) {
         document.getElementById(`pData${pNum}`).innerHTML = pokeData[pNum];
         document.getElementById(`container${pNum}`).style.display = "none";
         document.getElementById(`plus${pNum}`).style.display = "none";
-    } 
+    }
     //web
     else {
         document.getElementById("cardGhostTableWeb").style.display = "block";
