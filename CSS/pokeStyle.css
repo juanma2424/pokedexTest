@@ -43,7 +43,6 @@ body {
     border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
 }
 
-
 /* CARD STYLE IN POKEDEX AND GHOST TABLES */
 .card {
     padding: 2vh;
@@ -55,11 +54,7 @@ body {
     border-color:#302e2e #726969 #726969 #000000; 
 }
 
-
-
-/* WEB */
-
-/* GHOST TABLE IN PODEX WEB */
+/* GHOST TABLE IN PODEX */
 .ghostPokedexWeb{
     display: none;
     max-width: 100%;
@@ -69,60 +64,18 @@ body {
     position:absolute;
     z-index:1; 
 }
-/* GHOST CARD IN PODEX WEB */
+
+/* GHOST CARD IN PODEX */
 .ghostcardWeb{
     display: block;
     max-height: 74vh;
     min-height: 74vh;
     background-color: rgb(255, 23, 23);
+    background: linear-gradient(180deg, #3806ec 0%, #7869d1bb 90%);
     border:solid 1vh; 
     background-attachment: fixed;
     border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
 }
-
-
-
-
-/* MOBILE */
-
-/* GHOST TABLE IN PODEX MOBILE */
-.ghostPokedexMobile{
-    display: none;
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 100%;
-    max-height: 100%;
-    position:absolute;
-    background-color: rgb(146, 60, 163);
-    background-attachment: fixed;
-    z-index:1;
-}
-
-/* GHOST CARD IN PODEX MOBILE */
-.ghostPokedexCardMobile{
-    padding: 7vh;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 100%;
-    max-width: 100%;
-    max-height: 440px;
-    min-height: 440px;
-    width: 50%;
-    border:solid 7px; 
-    background-color: rgb(255, 255, 255);
-    background-attachment: fixed;
-    border-color:#B22222 #FEB9B9 #FEB9B9 #B22222; 
-}
-
-
-
-
-
-
-
-
-
-
 
 /* CENTER ELEMENT */
 .center {
@@ -134,26 +87,38 @@ body {
 }
 
 /* CONFIGURATION FONT*/
+
+/* POKE DATA NAME */
 h1{
-    font-family: 'Pokemon Solid', sans-serif;
     text-align: center;
+    font-family: 'Press Start 2P', cursive;
     color: #cab70efd;
-    font-size: 5.2vh;
+    font-size: 4.2vh; 
 }
 
+/* POKE DATA */
 h2{
     padding: 7vh;
-    font-family: 'Pokemon Solid', sans-serif;
+    font-family: 'Press Start 2P', cursive;
     text-align: center;
     color: #bebeb2fd;
     font-size: 4.2vh;
 }
 
+/* NAMES */
 p{
-    font-family: 'Pokemon Solid', sans-serif;
+    font-family: 'Press Start 2P', cursive;
     text-align: center;
     color: #cab70efd;
-    font-size: 3.2vh;
+    font-size: 2.2vh;
+}
+
+/* MOBILE */
+h3{
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    color: #cab70efd;
+    font-size: 1.5vh;
 }
 
 
