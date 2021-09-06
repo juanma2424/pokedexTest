@@ -270,11 +270,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// click funtion in button cam
-document.getElementById("containerCam").addEventListener("click", function () {
-    home();
-});
-
 
 
 
